@@ -1,0 +1,51 @@
+project:
+  name: "omop_etl_smoke"
+  log_dir: "logs"
+
+source_db:
+  host: "127.0.0.1"
+  port: 5433
+  dbname: "swedish_registry_smoke"
+  user_env: "DB_USER"
+
+schemas:
+  INPUT_SCHEMA: "raw_smoke"
+  OUTPUT_SCHEMA: "omop_smoke"
+  metadata_schema: "metadata_smoke"
+  cdm_schema: "omop_smoke"
+  cdm_version: "5.4"
+  ext_vocab_schema: "ext_vocab_2026_02"
+
+sampling:
+  input_schema: "raw_2024"
+  output_schema: "raw_smoke"
+  # Optional: per-database password env vars for cross-db sampling/FDW.
+  # Defaults to source_db.password_env when omitted.
+  # input_password_env: "DB_PASSWORD"
+  # output_password_env: "DB_PASSWORD"
+  # Optional. Defaults to source_db.dbname when omitted.
+  # Set these only when sampling input/output are in different databases.
+  input_dbname: "swedish_registry_test"
+  output_dbname: "swedish_registry_smoke"
+  # Optional cross-database FDW bootstrap (executed in output DB).
+  fdw_auto_setup: true
+  fdw_server_name: sampling_input_db_server
+  fdw_local_schema: raw_smoke_fdw
+
+sql_paths:
+  sampling: "sql/sampling"
+  external_vocabularies: "sql/external_vocabularies"
+  omop: "sql/omop"
+  indices: "sql/5.4/postgresql"
+
+run:
+  sql: true
+  use_index: false
+  sample_size: 100000
+
+vocabularies:
+  dir_path: "D:/Athena_Vocabularies"
+  external:
+    icd10se_codes_tsv_path: "D:/Vocabularies/Vocabularies mapping/ICD10-SE to ICD10-WHO/icd-10-se.tsv"
+    lisa_tpr_map_csv_path: "vocabularies/external/tpr_lisa_external_vocab.csv"
+    nplid_to_rxnorm_csv_path: "D:/Vocabularies/nplid_to_drug_exposure.csv"

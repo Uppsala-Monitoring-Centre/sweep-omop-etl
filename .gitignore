@@ -1,0 +1,27 @@
+# R session files
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+
+# renv
+renv/library/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+
+# RStudio
+.Rproj.user/
+
+# Logs / temp
+logs/
+*.log
+
+# SQL tooling
+.sqlfluffcache
+
+
+# Outputs of the mapping quality checks (derived from registry data, do not commit)
+output/

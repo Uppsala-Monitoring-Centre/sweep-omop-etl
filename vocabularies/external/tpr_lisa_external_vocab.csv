@@ -1,0 +1,59 @@
+data_holder;data_source;source_variable;source_variable_description;data_type;source_code;value_source_value;observation_source_value;observation_concept_id;value_as_concept_id;value_as_number;value_as_string
+SCB;RTB;fodelseLand_eu27_2020;country of birth grouped;text;Africa;Africa;Country of birth;4197735;4202566;4;Country of birth (African)
+SCB;RTB;fodelseLand_eu27_2020;country of birth grouped;text;Asian;Asian;Country of birth;4197735;4197736;3;Country of birth (Asian)
+SCB;RTB;fodelseLand_eu27_2020;country of birth grouped;text;EU27 utom Norden;EU27 utom Norden;Country of birth;4197735;4199964;1;Country of birth (European)
+SCB;RTB;fodelseLand_eu27_2020;country of birth grouped;text;Europa utom EU27 och Norden;Europa utom EU27 och Norden;Country of birth;4197735;4199964;1;Country of birth (European)
+SCB;RTB;fodelseLand_eu27_2020;country of birth grouped;text;Nordamerika;Nordamerika;Country of birth;4197735;4199965;2;Country of birth (American)
+SCB;RTB;fodelseLand_eu27_2020;country of birth grouped;text;Norden utom Sverige;Norden utom Sverige;Country of birth;4197735;4199964;1;Country of birth (European)
+SCB;RTB;fodelseLand_eu27_2020;country of birth grouped;text;Oceanien;Oceanien;Country of birth;4197735;4202568;5;Country of birth (Pacific)
+SCB;RTB;fodelseLand_eu27_2020;country of birth grouped;text;Sovjetunionen;Sovjetunionen;Country of birth;4197735;4199964;1;Country of birth (European)
+SCB;RTB;fodelseLand_eu27_2020;country of birth grouped;text;Sverige;Sverige;Country of birth;4197735;4199964;1;Country of birth (European)
+SCB;RTB;fodelseLand_eu27_2020;country of birth grouped;text;Sydamerika;Sydamerika;Country of birth;4197735;4199965;2;Country of birth (American)
+SCB;RTB;fodelseLand_eu27_2020;country of birth grouped;text;Okänt;Okänt;Country of birth;4197735;40482029;6;Country of birth unknown
+SCB;RTB;fodelseLand_eu27_2020;country of birth grouped;text;Statslös;Statslös;Country of birth;4197735;40482029;6;Country of birth unknown
+SCB;RTB;fodelseLand_eu27_2020;country of birth grouped;text;[null];[null];Country of birth;4197735;40482029;6;Country of birth unknown
+SCB;LISA;lan;county of residence;bigint;1;Stockholms län;County of residence;4201070;;1;
+SCB;LISA;lan;county of residence;bigint;3;Uppsala län;County of residence;4201070;;3;
+SCB;LISA;lan;county of residence;bigint;4;Södermanlands län;County of residence;4201070;;4;
+SCB;LISA;lan;county of residence;bigint;5;Östergötlands län;County of residence;4201070;;5;
+SCB;LISA;lan;county of residence;bigint;6;Jönköpings län;County of residence;4201070;;6;
+SCB;LISA;lan;county of residence;bigint;7;Kronobergs län;County of residence;4201070;;7;
+SCB;LISA;lan;county of residence;bigint;8;Kalmar län;County of residence;4201070;;8;
+SCB;LISA;lan;county of residence;bigint;9;Gotlands län;County of residence;4201070;;9;
+SCB;LISA;lan;county of residence;bigint;10;Blekinge län;County of residence;4201070;;10;
+SCB;LISA;lan;county of residence;bigint;12;Skåne län;County of residence;4201070;;12;
+SCB;LISA;lan;county of residence;bigint;13;Hallands län;County of residence;4201070;;13;
+SCB;LISA;lan;county of residence;bigint;14;Västra Götalands län;County of residence;4201070;;14;
+SCB;LISA;lan;county of residence;bigint;17;Värmlands län;County of residence;4201070;;17;
+SCB;LISA;lan;county of residence;bigint;18;Örebro län;County of residence;4201070;;18;
+SCB;LISA;lan;county of residence;bigint;19;Västmanlands län;County of residence;4201070;;19;
+SCB;LISA;lan;county of residence;bigint;20;Dalarnas län;County of residence;4201070;;20;
+SCB;LISA;lan;county of residence;bigint;21;Gävleborgs län;County of residence;4201070;;21;
+SCB;LISA;lan;county of residence;bigint;22;Västernorrlands län;County of residence;4201070;;22;
+SCB;LISA;lan;county of residence;bigint;23;Jämtlands län;County of residence;4201070;;23;
+SCB;LISA;lan;county of residence;bigint;24;Västerbottens län;County of residence;4201070;;24;
+SCB;LISA;lan;county of residence;bigint;25;Norrbottens län;County of residence;4201070;;25;
+SCB;LISA;civil;civil status;text;EP;Efterlevande partner;Marital or partnership status;4076095;44791570;7;Widowed/surviving civil partner
+SCB;LISA;civil;civil status;text;G;Gift;Marital or partnership status;4076095;4338692;2;Married
+SCB;LISA;civil;civil status;text;OG;Ogift;Marital or partnership status;4076095;4053854;1;Single, never married
+SCB;LISA;civil;civil status;text;RP;Registrerad partner;Marital or partnership status;4076095;44791567;3;Married/civil partner
+SCB;LISA;civil;civil status;text;S;Skild;Marital or partnership status;4076095;4069297;4;Divorced
+SCB;LISA;civil;civil status;text;SP;Skild partner;Marital or partnership status;4076095;44791569;5;Divorced/person whose civil partnership has been dissolved
+SCB;LISA;civil;civil status;text;Ä;Änka/Änkling;Marital or partnership status;4076095;4149091;6;Widow
+SCB;LISA;sun2000niva_old;education level 2000-2018;text;*;Uppgift saknas;Educational achievement;4022643;;0;
+SCB;LISA;sun2000niva_old;education level 2000-2018;text;1;Förgymnasial utbildning kortare än 9 år;Educational achievement;4022643;;1;
+SCB;LISA;sun2000niva_old;education level 2000-2018;text;2;Förgymnasial utbildning 9 år;Educational achievement;4022643;;2;
+SCB;LISA;sun2000niva_old;education level 2000-2018;text;3;Gymnasial utbildning högst 2-årig;Educational achievement;4022643;;3;
+SCB;LISA;sun2000niva_old;education level 2000-2018;text;4;Gymnasial utbildning 3 år;Educational achievement;4022643;;4;
+SCB;LISA;sun2000niva_old;education level 2000-2018;text;5;Eftergymnasial utbildning kortare än 3 år;Educational achievement;4022643;;5;
+SCB;LISA;sun2000niva_old;education level 2000-2018;text;6;Eftergymnasial utbildning 3 år eller längre (exkl. forskarutbildning);Educational achievement;4022643;;6;
+SCB;LISA;sun2000niva_old;education level 2000-2018;text;7;Forskarutbildning;Educational achievement;4022643;;7;
+SCB;LISA;sun2020niva_old;education level 2019 -;text;*;Uppgift saknas;Educational achievement;4022643;;0;
+SCB;LISA;sun2020niva_old;education level 2019 -;text;1;Förgymnasial utbildning kortare än 9 år;Educational achievement;4022643;;1;
+SCB;LISA;sun2020niva_old;education level 2019 -;text;2;Förgymnasial utbildning 9 år;Educational achievement;4022643;;2;
+SCB;LISA;sun2020niva_old;education level 2019 -;text;3;Gymnasial utbildning högst 2-årig;Educational achievement;4022643;;3;
+SCB;LISA;sun2020niva_old;education level 2019 -;text;4;Gymnasial utbildning 3 år;Educational achievement;4022643;;4;
+SCB;LISA;sun2020niva_old;education level 2019 -;text;5;Eftergymnasial utbildning kortare än 3 år;Educational achievement;4022643;;5;
+SCB;LISA;sun2020niva_old;education level 2019 -;text;6;Eftergymnasial utbildning 3 år eller längre (exkl. forskarutbildning);Educational achievement;4022643;;6;
+SCB;LISA;sun2020niva_old;education level 2019 -;text;7;Forskarutbildning;Educational achievement;4022643;;7;
+SCB;LISA;dispink04;disposable income (multiple of 100);bigint;;;Individual income;4073460;;;

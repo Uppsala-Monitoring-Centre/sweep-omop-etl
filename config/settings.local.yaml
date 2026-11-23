@@ -1,0 +1,40 @@
+project:
+  name: "omop_etl"
+  log_dir: "logs"
+
+
+source_db:
+  host: "127.0.0.1"
+  port: 5433
+  dbname: "swedish_registry_test"
+  user_env: "DB_USER"
+
+schemas:
+  INPUT_SCHEMA: "raw_2024"
+  OUTPUT_SCHEMA: "omop54"
+  metadata_schema: "metadata"
+  cdm_schema: "omop54"
+  cdm_version: "5.4"
+  ext_vocab_schema: "ext_vocab_2026_02"
+
+sampling:
+  input_schema: "raw_2024"
+  output_schema: "raw_sample"
+
+sql_paths:
+  sampling: "sql/sampling"
+  external_vocabularies: "sql/external_vocabularies"
+  omop: "sql/omop"
+  indices: "sql/5.4/postgresql" 
+
+run:
+  sql: true
+  use_index: false
+  sample_size: 100000
+
+vocabularies:
+  dir_path: "D:/Athena_Vocabularies"
+  external:
+    icd10se_codes_tsv_path: "D:/Vocabularies/Vocabularies mapping/ICD10-SE to ICD10-WHO/icd-10-se.tsv"
+    lisa_tpr_map_csv_path: "vocabularies/external/tpr_lisa_external_vocab.csv"
+    nplid_to_rxnorm_csv_path: "D:/Vocabularies/nplid_to_drug_exposure.csv"

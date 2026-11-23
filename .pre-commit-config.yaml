@@ -1,0 +1,26 @@
+repos:
+  - repo: local
+    hooks:
+      - id: r-format-styler
+        name: R format (styler)
+        entry: Rscript scripts/quality/format_r.R
+        language: system
+        types: [r]
+
+      - id: r-lint-lintr
+        name: R lint (lintr)
+        entry: Rscript scripts/quality/lint_r.R
+        language: system
+        types: [r]
+
+      - id: sql-format-sqlfluff
+        name: SQL format (sqlfluff fix)
+        entry: sqlfluff fix --force
+        language: system
+        files: ^sql/.*\.sql$
+
+      - id: sql-lint-sqlfluff
+        name: SQL lint (sqlfluff lint)
+        entry: sqlfluff lint
+        language: system
+        files: ^sql/.*\.sql$
