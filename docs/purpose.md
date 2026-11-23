@@ -49,8 +49,8 @@ Important limitations currently recorded in the mapping materials include incomp
 
 ## Related documentation
 
-- [Mapping overview](Documentation_Mapping.qmd)
+- [Mapping overview](Documentation_Mapping.md)
 - [Transformation rules](transformation.md)
 - [Vocabulary mappings](vocabulary.md)
 - [Data quality and open issues](data_quality.md)
-- [Detailed mapping register](sweep_ETL_design.xlsx)
+- [Detailed mapping register](SWEEP_ETL_specification.xlsx)

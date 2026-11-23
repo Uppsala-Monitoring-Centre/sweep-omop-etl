@@ -1,16 +1,10 @@
 ---
 title: "OMOP CDM ETL Pipeline Documentation"
-format: 
-  html:
-    toc: true
-    number-sections: true
-    theme: cosmo
-    # mermaid: true
 ---
 
 # Overview
 
-This repository contains the R and SQL pipeline that transforms Swedish register data into OMOP CDM tables in PostgreSQL. This document describes the pipeline; field-level source-to-target mappings, transformation rules, and review notes are maintained in the [SWEEP ETL design workbook](sweep_ETL_specification.xlsx), while the SQL files define executable behavior.
+This repository contains the R and SQL pipeline that transforms Swedish register data into OMOP CDM tables in PostgreSQL. This document describes the pipeline; field-level source-to-target mappings, transformation rules, and review notes are maintained in the [SWEEP ETL design workbook](SWEEP_ETL_specification.xlsx), while the SQL files define executable behavior.
 
 Mapping uses the OMOP CDM version and vocabulary release available at the time of execution. The `cdm_source.vocabulary_version` value comes from the loaded Athena `VOCABULARY` table, and the release template calls for recording Athena and external vocabulary versions. However, `metadata.etl_runs` does not currently capture vocabulary versions or source-file checksums, so external vocabulary provenance is not yet verifiable per ETL run.
 
@@ -35,14 +29,14 @@ The pipeline consists of four required stages and an optional sample-data prepar
 This documentation uses three complementary sources:
 
 - **Executable source of truth:** SQL files under `sql/omop/` and `sql/external_vocabularies/`. The SQL determines the actual transformation applied to the database.
-- **ETL mapping design:** [`docs/sweep_ETL_specification.xlsx`](sweep_ETL_specification.xlsx). This is the detailed, reviewable register of destination fields, source fields, transformation rules, vocabulary mappings, and open questions.
-- **Published explanation:** this Quarto document. It explains the pipeline and summarizes the mapping decisions so that the logic can be read without opening the workbook or SQL files.
+- **ETL mapping design:** [`docs/SWEEP_ETL_specification.xlsx`](SWEEP_ETL_specification.xlsx). This is the detailed, reviewable register of destination fields, source fields, transformation rules, vocabulary mappings, and open questions.
+- **Published explanation:** this document. It explains the pipeline and summarizes the mapping decisions so that the logic can be read without opening the workbook or SQL files.
 
 Transformation logic is maintained in SQL, with corresponding field-level mappings in the workbook and decision summaries in this document. SQL is authoritative if the workbook or narrative documentation differs from the executable transformation.
 
 ## ETL mapping design format
 
-The workbook organizes mappings into sheets by target table and records one or more input data rows per destination field. The `measurement` and `procedure` sheets are present as placeholders but currently contain no mapped rows. Its existing columns are:
+The workbook organizes mappings into sheets by target table and records one or more input data rows per destination field. Its columns are:
 
 | Column | Purpose |
 |---|---|
@@ -95,23 +89,23 @@ The current workbook contains these sheets:
 | `drug_exposure` | exposure identifier, person, drug concepts, dates, type, quantity | Product exclusions, VARUNR mapping, exposure end-date rules |
 | `condition_occurrence` | condition identifier, person, concepts, dates, source values, visit | ICD-10 and cancer source mapping, domain routing, duplicate clinical events |
 | `observation` | person, observation concept/source, value, date | Country of birth, county, civil status, education level, disposable income, and routed non-condition clinical events |
-| `measurement` | measurement fields | No mapping rows currently documented | Populate the sheet for PAR and cancer records routed to `measurement` |
-| `procedure` | procedure occurrence fields | No mapping rows currently documented | Populate the sheet for PAR and cancer records routed to `procedure_occurrence` |
+| `measurement` | measurement identifier, person, concept, date, type, source value | ICD-10-SE codes from PAR and the cause-of-death register routed to the Measurement domain via ICD-10-WHO → SNOMED CT; type concept per source register |
+| `procedure_occurrence` | procedure identifier, person, concept, date, type, source value | ICD-10-SE codes from PAR and the cause-of-death register routed to the Procedure domain via ICD-10-WHO → SNOMED CT; type concept per source register |
 
-The `measurement` and `procedure` sheets are empty, although the PAR and cancer SQL route records to those OMOP tables. Field-level mappings for these outputs are not currently documented in the workbook.
+The `measurement` and `procedure_occurrence` sheets document records from PAR (`par_sv`, `par_ov`) and the cause-of-death register (`dors`). Cancer register records that `06d_can_to_condition_measurement_procedure_observation.sql` routes to these tables are not yet documented in the workbook.
 
 ## Related documentation
 
 The repository's documentation set is organized by topic:
 
-- `docs/Documentation_Mapping.qmd` — overview, architecture, execution order, and mapping documentation;
+- `docs/Documentation_Mapping.md` — overview, architecture, execution order, and mapping documentation;
 - `docs/purpose.md` — cohort purpose, target population, data sources, observation window, and intended use;
 - `docs/transformation.md` — transformation logic, dependencies, exclusions, date handling, and domain routing;
 - `docs/vocabulary.md` — Athena, ICD-10, SNOMED, VARUNR, RxNorm, and custom mapping assets;
 - `docs/data_quality.md` — validation rules, attrition checks, known defects, and unresolved mapping questions;
 - `docs/RELEASES.md` — version and release history.
 
-The workbook contains field-level mappings. Markdown and Quarto pages summarize decisions, assumptions, and relationships between transformations.
+The workbook contains field-level mappings. The Markdown pages summarize decisions, assumptions, and relationships between transformations.
 
 This document summarizes the mapping design and links to the relevant workbook and SQL sources rather than reproducing every workbook row.
 
@@ -148,7 +142,7 @@ The pipeline can be run on a sample dataset (for testing/workshop) or the full p
 
 ## Pipeline Flow
 
-```{mermaid}
+```mermaid
 flowchart TD
   A([YAML configuration]) --> C["01_setup_CDM.R<br/>Initialize the OMOP CDM"]
   C --> D["02_setup_ext_vocab.R<br/>Load Swedish mappings"]

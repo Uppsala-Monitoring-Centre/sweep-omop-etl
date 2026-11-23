@@ -25,3 +25,6 @@ logs/
 
 # Outputs of the mapping quality checks (derived from registry data, do not commit)
 output/
+
+# MkDocs build output
+site/

@@ -1,6 +1,6 @@
 # Data Quality and Open Issues
 
-This page records quality rules, validation expectations, and unresolved issues for the SWEEP ETL. The detailed field-level rules are maintained in [SWEEP_ETL_design.xlsx](sweep_ETL_design.xlsx), while executable checks and transformations are in the SQL files.
+This page records quality rules, validation expectations, and unresolved issues for the SWEEP ETL. The detailed field-level rules are maintained in [SWEEP_ETL_specification.xlsx](SWEEP_ETL_specification.xlsx), while executable checks and transformations are in the SQL files.
 
 ## Quality principles
 

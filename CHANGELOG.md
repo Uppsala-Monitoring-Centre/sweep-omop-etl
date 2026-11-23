@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - Add the `period_start` rule to `etl_common.parse_par_date` in `00_create_functions.sql`, imputing partial dates to the first day of the known month or year. This is used to be conservative in the emigration period.
+- Add a documentation website built with MkDocs and published to GitHub Pages (`mkdocs.yml`, `.github/workflows/docs.yml`). It includes a Mapping register page generated from `docs/SWEEP_ETL_specification.xlsx` at build time.
 
 ### Fixed
 

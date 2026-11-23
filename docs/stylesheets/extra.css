@@ -1,0 +1,25 @@
+/* Mapping register tables generated from the ETL specification workbook */
+.md-typeset table.spec-table {
+  display: table;
+  border-collapse: collapse;
+  font-size: 0.68rem;
+  width: 100%;
+}
+
+.md-typeset table.spec-table th,
+.md-typeset table.spec-table td {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  padding: 0.4em 0.6em;
+  vertical-align: top;
+  text-align: left;
+}
+
+.md-typeset table.spec-table th {
+  background-color: var(--md-default-fg-color--lightest);
+  font-weight: 700;
+}
+
+.md-typeset table.spec-table td:first-child {
+  font-family: var(--md-code-font-family);
+  white-space: nowrap;
+}

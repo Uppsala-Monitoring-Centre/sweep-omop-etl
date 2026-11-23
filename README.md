@@ -63,22 +63,19 @@ This structure makes the ETL easier to maintain.
 - `config/settings.<env>.yaml`: runtime configuration (schemas, DB endpoints, paths)
 - `vocabularies/external`: external vocabulary files maintained by the project (e.g. the TPR/LISA mapping), loaded by `02_setup_ext_vocab.R`
 - `docs`: project and ETL documentation
-  - `Documentation_Mapping.qmd`: Quarto overview of the pipeline and mapping documentation
-  - `Documentation_Mapping.html`: rendered mapping documentation with Mermaid visualizations
-  - `Documentation_Mapping_files/`: CSS, JavaScript, and font assets required by the rendered HTML
+  - `Documentation_Mapping.md`: overview of the pipeline and mapping documentation, including the Mermaid pipeline diagram
   - `purpose.md`: cohort purpose, population, data sources, and intended use
   - `transformation.md`: table-level transformation logic and dependencies
   - `vocabulary.md`: standard and custom vocabulary mappings
   - `data_quality.md`: quality rules, validation checks, and open issues
   - `SWEEP_ETL_specification.xlsx`: detailed field-level mapping register
   - `RELEASES.md`: release history and production release notes
-  - `condition_occurrences_outside_observation_periods/`: Quarto report files on condition occurrences outside observation periods
 - `scripts`: code to run formatter and linter setup (R and SQL)
 - `tests`: unit test folder
 
 ## Documentation
 
-Start with the [mapping overview source](docs/Documentation_Mapping.qmd) or open the [rendered mapping documentation](docs/Documentation_Mapping.html) for the HTML layout and Mermaid pipeline visualization. The rendered page depends on the adjacent `docs/Documentation_Mapping_files/` asset directory.
+Start with the [mapping overview](docs/Documentation_Mapping.md), which includes the Mermaid pipeline diagram.
 
 Use the supporting documents for focused review:
 
@@ -90,15 +87,16 @@ Use the supporting documents for focused review:
 - [Detailed mapping register](docs/SWEEP_ETL_specification.xlsx): field-level source-to-destination mappings, logic, comments, and notes.
 - [Release documentation](docs/RELEASES.md): version-specific release details and verification information.
 
-The Markdown and Quarto files describe decisions and relationships between transformations. The Excel workbook contains the row-level mapping register, and the SQL files remain the executable source of truth.
+The Markdown files describe decisions and relationships between transformations. The Excel workbook contains the row-level mapping register, and the SQL files remain the executable source of truth.
 
-When the Quarto source changes, regenerate the rendered page and its companion assets:
+All documentation is plain Markdown, so no rendering step is needed: GitHub displays the pages, including the Mermaid diagram, directly in the repository view.
 
-```powershell
-quarto render docs/Documentation_Mapping.qmd
+The same pages are published as a website with [MkDocs](https://www.mkdocs.org/) (configuration in `mkdocs.yml`). The site adds a *Mapping register* page generated from `docs/SWEEP_ETL_specification.xlsx` at build time, and the GitHub workflow `.github/workflows/docs.yml` deploys it to GitHub Pages on every push to `main` that touches the documentation. To preview it locally:
+
+```sh
+pip install -r requirements-docs.txt
+mkdocs serve
 ```
-
-Commit the source file, `Documentation_Mapping.html`, and the complete `Documentation_Mapping_files/` directory together. GitHub or Azure DevOps repository views may display the HTML source rather than execute it; publish the rendered files through GitHub Pages, Azure Static Web Apps, or another static web host for the full visualization experience.
 
 ## Working with R in this project
 

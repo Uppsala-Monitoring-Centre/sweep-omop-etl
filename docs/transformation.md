@@ -1,6 +1,6 @@
 # ETL Transformation Rules
 
-This page summarizes the implemented transformation behavior. The detailed field-level mapping is maintained in [SWEEP_ETL_design.xlsx](sweep_ETL_design.xlsx); SQL under `sql/omop/` is the executable source of truth.
+This page summarizes the implemented transformation behavior. The detailed field-level mapping is maintained in [SWEEP_ETL_specification.xlsx](SWEEP_ETL_specification.xlsx); SQL under `sql/omop/` is the executable source of truth.
 
 ## Execution order
 

@@ -1,6 +1,6 @@
 # Vocabulary and Concept Mappings
 
-The ETL uses standard OMOP vocabularies together with Swedish source-code mappings. The detailed field-level decisions are in [SWEEP_ETL_design.xlsx](sweep_ETL_design.xlsx); the executable setup and mapping SQL is under `sql/external_vocabularies/` and `sql/omop/`.
+The ETL uses standard OMOP vocabularies together with Swedish source-code mappings. The detailed field-level decisions are in [SWEEP_ETL_specification.xlsx](SWEEP_ETL_specification.xlsx); the executable setup and mapping SQL is under `sql/external_vocabularies/` and `sql/omop/`.
 
 ## Standard OMOP vocabularies
 
